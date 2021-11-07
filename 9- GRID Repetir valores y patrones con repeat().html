@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>Col 1</div>
+        <div>Col 2</div>
+        <div>Col 3</div>
+        <div>Col 4</div>
+        <div>Col 5</div>
+        <div>Col 6</div>
+        <div>Col 7</div>
+        <div>Col 8</div>
+        <div>Col 9</div>
+        <div>Col 10</div>
+        <div>Col 11</div>
+        <div>Col 12</div>
+    </main>
+
+    <style>
+        main {
+            display: grid;
+            height: 100vh;
+            gap: 10px;
+            font-family: sans-serif;
+            grid-template-columns: 
+                [start]
+                repeat(4,
+                    [col-lg-start] minmax(80px, 1fr)
+                    [col-lg-end col-md-smart] minmax(40px, 1fr)
+                    [col-md-end col-sm-start] minmax(20px, 1fr)
+                )
+                [end]
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: goldenrod;
+        }
+
+        div:first-of-type {
+            background-color: purple;
+            color: white;
+            grid-column: col-lg-start / end;
+        }
+    </style>
+
+</body>
+</html>

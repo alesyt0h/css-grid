@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <header>Header</header>
+        <aside>Izquierda</aside>
+        <article>Contenido</article>
+        <aside>Derecha</aside>
+        <footer>Footer</footer>
+    </main>
+
+    <style>
+        main > * {
+            background-color: goldenrod;
+            padding: 10px;
+            font-size: 3em;
+        }
+
+        main {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-areas: 
+            "header"
+            "izquierda"
+            "contenido"
+            "derecha"
+            "footer";
+
+        }
+
+        /* Desktop */
+        @media (min-width: 500px){
+            main {
+                grid-template-areas:
+                "header header header"
+                "contenido izquierda derecha"
+                "footer footer footer";
+            }
+        }
+
+
+        header {
+            grid-area: header;
+        }
+
+        aside:first-of-type {
+            grid-area: izquierda;
+        }
+
+        article {
+            grid-area: contenido;
+        }
+
+        aside:last-of-type {
+            grid-area: derecha;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+    </style>
+    
+</body>
+</html>

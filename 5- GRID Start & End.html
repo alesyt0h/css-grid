@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <header>Header</header>
+        <aside>Sidebar</aside>
+        <article>Contenido</article>
+        <footer>Footer</footer>
+    </main>
+
+    <style>
+        main {
+            display: grid;
+            height: 100vh;
+            gap: 10px;
+            /* grid-template-columns: 1fr 2fr; */
+            grid-template-columns: 
+                [sidebar-start] 1fr
+                [sidebar-end contenido-start] 2fr
+                [contenido-end];
+
+            grid-template-rows: 
+                [header-start] 1fr
+                [header-end contenido-start] 2fr
+                [footer-start] 1fr
+                [footer-end];
+        }
+
+        main > * {
+            font-family: sans-serif;
+            background-color: goldenrod;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* header {
+            grid-column: sidebar-start / span 2;
+            gap: 0 !important;
+        }
+
+        footer {
+            grid-column: sidebar-start / -1;
+        } */
+
+        /* Variación */
+
+        header {
+            grid-column: sidebar-start / contenido-end;
+            gap: 0px !important;
+        }
+
+        aside {
+            grid-row: header-end / footer-end;
+        }
+
+        footer {
+            grid-column: contenido-start / contenido-end;
+        }
+    </style>
+
+</body>
+</html>
